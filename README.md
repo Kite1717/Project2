@@ -11,7 +11,7 @@
 - **Using** [.NET Framework 4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49981) 🔧
 - [Description](https://github.com/DokuzEylulCsc/proje2-lost/blob/master/DESCRIPTION.md) 📋 
 - [Source Code](https://github.com/DokuzEylulCsc/proje2-lost/tree/master/Project2) 🐛 
-- [UML Diagram]()
+- [UML Diagram](https://github.com/DokuzEylulCsc/proje2-lost/blob/master/UML%20Class%20Diagram/UML%20Class%20Diagram.pdf)
 - [Log File](https://github.com/DokuzEylulCsc/proje2-lost/blob/master/Project2/bin/Debug/Log.txt)
 - [Xml Files]()
 
