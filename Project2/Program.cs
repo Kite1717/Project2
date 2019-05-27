@@ -10,10 +10,7 @@ namespace Project2
     {
         static void Main(string[] args)
         {
-            Logger.writeToFile();
-            string add = null;
-            Console.WriteLine(new Exception().GetType().Name.ToString());
-            Logger.readToFile();
+           
         }
     }
 }

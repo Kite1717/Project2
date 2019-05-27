@@ -55,6 +55,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reservation.cs" />
     <Compile Include="Room.cs" />
+    <Compile Include="RoomFactory.cs" />
     <Compile Include="SingleBedRoom.cs" />
     <Compile Include="ThreeBedRoom.cs" />
     <Compile Include="TwinRoom.cs" />
