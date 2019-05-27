@@ -33,11 +33,14 @@ namespace Project2
         /// </summary>
         /// <returns>to be successful control</returns>
         public abstract bool addRoom();
-        
 
-
-
-
-
+        /// <summary>
+        /// for saving information when closing the application
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return null;
+        }
     }
 }

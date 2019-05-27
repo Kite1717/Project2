@@ -11,7 +11,7 @@ namespace Project2
     /// </summary>
     class AllInHotel : Hotel
     {
-        private int roomCapacity;//range 15-20
+        public int roomCapacity { get; }//range 15-20
         public AllInHotel(string city) : base(city,3)
         {
             Random random = new Random();

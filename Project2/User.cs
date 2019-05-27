@@ -8,7 +8,7 @@ namespace Project2
 {
     class User
     {
-        public string id;
+        private string id;
         private string password;
         private string name;
         private string surname;
@@ -178,6 +178,7 @@ namespace Project2
                 }
             }
         }
+
 
 
 

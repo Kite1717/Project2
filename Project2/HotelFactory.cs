@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project2
 {
+    #region Abstract_Factory 
     //Ref Link : https://dzone.com/articles/factory-method-design-pattern
     class HotelFactory
     {
@@ -74,3 +75,4 @@ namespace Project2
         }
     }
 }
+#endregion
