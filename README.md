@@ -21,3 +21,5 @@
 - [Singleton Design Pattern](https://www.geeksforgeeks.org/singleton-design-pattern/)
 - [Iterator Design Pattern](https://airbrake.io/blog/design-patterns/iterator-design-pattern)
  - [MSDOCS](https://docs.microsoft.com/tr-tr/)
+ - [UML Design](https://products.office.com/tr-tr/visio/flowchart-software)
+ - [Stack OverFlow](https://stackoverflow.com/)
