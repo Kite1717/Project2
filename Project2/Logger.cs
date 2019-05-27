@@ -35,7 +35,7 @@ namespace Project2
             }
 
            
-            //burası tamamlanıcak
+           //TODO Fix 
                 bool flag = true;
                 for (int i = 0; i < logs.Values.Count; i++)
                 {
