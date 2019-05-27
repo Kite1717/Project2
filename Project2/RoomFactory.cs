@@ -9,11 +9,11 @@ namespace Project2
     class RoomFactory
     {
         /// <summary>
-        /// the desired hotel-type object produces
+        /// the desired room-type object produces
         /// </summary>
         /// <param name="roomType"> name of room</param>
         /// <param name="roomNo"> number of room</param>
-        /// <returns></returns>
+        /// <returns> gives the desired room</returns>
 
         public static Room GetRoom(string roomType, int roomNo)
         {

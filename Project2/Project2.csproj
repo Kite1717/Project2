@@ -49,6 +49,7 @@
     <Compile Include="HolidayVillage.cs" />
     <Compile Include="Hostel.cs" />
     <Compile Include="Hotel.cs" />
+    <Compile Include="HotelFactory.cs" />
     <Compile Include="KingRoom.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Program.cs" />
