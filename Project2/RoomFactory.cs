@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project2
 {
+    //Ref Link : https://dzone.com/articles/factory-method-design-pattern
     class RoomFactory
     {
         /// <summary>
