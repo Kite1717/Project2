@@ -8,16 +8,14 @@ namespace Project2
 {
     class App
     {
-       private List<Hotel> hotels;
+       private List<Hotel> hotels = new List<Hotel>();
        private List<User> users;
         private Administration admin;
 
         public App()
         {
-
-            if (!continueApp())
-                startDemo();
-            else loginScreen();
+            
+           
         }
 
         /// <summary>
@@ -34,6 +32,7 @@ namespace Project2
         /// </summary>
         public void startDemo()
         {
+            //added hotel
             Random random = new Random();
             int k;
             string type = null;
@@ -80,22 +79,25 @@ namespace Project2
                             }
                     }
                     hotels.Add(HotelFactory.GetHotel(type, data[i]));
-
+                   
 
                 
                 }
               
 
             }
+            //added rooms
+            for (int i = 0; i < hotels.Count; i++) addRoom(hotels[i]);
+
             for (int i = 0; i < hotels.Count; i++)
             {
-                hotels
-            }
+                Console.WriteLine("--------" + "Hotel" + (i+1));
+                hotels[i].rooms.ForEach(Console.WriteLine);
+                Console.WriteLine("--------\n");
 
+            } 
 
-           
-
-            //add hotels
+            
             loginScreen();
         }
 
