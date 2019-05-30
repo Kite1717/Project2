@@ -111,18 +111,18 @@ namespace Project2
                         for (int i = 0; i < hotel.roomCapacity / 2; i++)
                         {
                             num++;
-                           hotel. rooms.Add(RoomFactory.GetRoom("SingleBedRoom", num));
+                           hotel. rooms.Add(RoomFactory.GetRoom("SingleBedRoom", num,hotel.star));
                         }
                         num = 200;
                         for (int i = 0; i < hotel.roomCapacity - hotel.roomCapacity / 2; i++)
                         {
                             num++;
-                           hotel.rooms.Add(RoomFactory.GetRoom("TwoBedRoom", num));
+                           hotel.rooms.Add(RoomFactory.GetRoom("TwoBedRoom", num, hotel.star));
                         }
                         //wrong room name
                         try
                         {
-                            hotel.rooms.Add(RoomFactory.GetRoom("Tsadasm", 518));
+                            hotel.rooms.Add(RoomFactory.GetRoom("Tsadasm", 518, hotel.star));
                         }
                         catch (ArgumentException e)
                         {
@@ -139,26 +139,26 @@ namespace Project2
                         for (int i = 0; i < hotel.roomCapacity / 3; i++)
                         {
                             num++;
-                           hotel.rooms.Add(RoomFactory.GetRoom("SingleBedRoom", num));
+                           hotel.rooms.Add(RoomFactory.GetRoom("SingleBedRoom", num, hotel.star));
                         }
                         num = 200;
                         for (int i = 0; i < hotel.roomCapacity / 3; i++)
                         {
                             num++;
-                            hotel.rooms.Add(RoomFactory.GetRoom("TwoBedRoom", num));
+                            hotel.rooms.Add(RoomFactory.GetRoom("TwoBedRoom", num, hotel.star));
                         }
 
                         num = 300;
                         for (int i = 0; i < hotel.roomCapacity - ((hotel.roomCapacity / 3) * 2); i++)
                         {
                             num++;
-                            hotel.rooms.Add(RoomFactory.GetRoom("TwinRoom", num));
+                            hotel.rooms.Add(RoomFactory.GetRoom("TwinRoom", num, hotel.star));
                         }
 
                         //null room name
                         try
                         {
-                            hotel.rooms.Add(RoomFactory.GetRoom(null, 312));
+                            hotel.rooms.Add(RoomFactory.GetRoom(null, 312, hotel.star));
                         }
                         catch (ArgumentException e)
                         {
@@ -173,20 +173,20 @@ namespace Project2
                         for (int i = 0; i < hotel.roomCapacity / 4; i++)
                         {
                             num++;
-                           hotel.rooms.Add(RoomFactory.GetRoom("SingleBedRoom", num));
+                           hotel.rooms.Add(RoomFactory.GetRoom("SingleBedRoom", num, hotel.star));
                         }
                         num = 200;
                         for (int i = 0; i < hotel.roomCapacity / 4; i++)
                         {
                             num++;
-                            hotel.rooms.Add(RoomFactory.GetRoom("TwoBedRoom", num));
+                            hotel.rooms.Add(RoomFactory.GetRoom("TwoBedRoom", num, hotel.star));
                         }
 
                         num = 300;
                         for (int i = 0; i < hotel.roomCapacity / 4; i++)
                         {
                             num++;
-                            hotel.rooms.Add(RoomFactory.GetRoom("TwinRoom", num));
+                            hotel.rooms.Add(RoomFactory.GetRoom("TwinRoom", num, hotel.star));
                         }
 
 
@@ -194,13 +194,13 @@ namespace Project2
                         for (int i = 0; i < hotel.roomCapacity - ((hotel.roomCapacity / 4) * 3); i++)
                         {
                             num++;
-                            hotel.rooms.Add(RoomFactory.GetRoom("ThreeBedRoom", num));
+                            hotel.rooms.Add(RoomFactory.GetRoom("ThreeBedRoom", num, hotel.star));
                         }
 
                         //wrong room name
                         try
                         {
-                            hotel.rooms.Add(RoomFactory.GetRoom("adsadasda", 426));
+                            hotel.rooms.Add(RoomFactory.GetRoom("adsadasda", 426, hotel.star));
                         }
                         catch (ArgumentException e)
                         {
@@ -215,20 +215,20 @@ namespace Project2
                         for (int i = 0; i < hotel.roomCapacity / 5; i++)
                         {
                             num++;
-                            hotel.rooms.Add(RoomFactory.GetRoom("SingleBedRoom", num));
+                            hotel.rooms.Add(RoomFactory.GetRoom("SingleBedRoom", num, hotel.star));
                         }
                         num = 200;
                         for (int i = 0; i < hotel.roomCapacity / 5; i++)
                         {
                             num++;
-                            hotel.rooms.Add(RoomFactory.GetRoom("TwoBedRoom", num));
+                            hotel.rooms.Add(RoomFactory.GetRoom("TwoBedRoom", num, hotel.star));
                         }
 
                         num = 300;
                         for (int i = 0; i < hotel.roomCapacity / 5; i++)
                         {
                             num++;
-                            hotel.rooms.Add(RoomFactory.GetRoom("TwinRoom", num));
+                            hotel.rooms.Add(RoomFactory.GetRoom("TwinRoom", num, hotel.star));
                         }
 
 
@@ -236,20 +236,20 @@ namespace Project2
                         for (int i = 0; i < hotel.roomCapacity / 5; i++)
                         {
                             num++;
-                            hotel.rooms.Add(RoomFactory.GetRoom("ThreeBedRoom", num));
+                            hotel.rooms.Add(RoomFactory.GetRoom("ThreeBedRoom", num, hotel.star));
                         }
 
                         num = 500;
                         for (int i = 0; i < hotel.roomCapacity - ((hotel.roomCapacity / 5) * 4); i++)
                         {
                             num++;
-                            hotel.rooms.Add(RoomFactory.GetRoom("FamilyRoom", num));
+                            hotel.rooms.Add(RoomFactory.GetRoom("FamilyRoom", num, hotel.star));
                         }
 
                         //null room name
                         try
                         {
-                            hotel.rooms.Add(RoomFactory.GetRoom(null, 718));
+                            hotel.rooms.Add(RoomFactory.GetRoom(null, 718, hotel.star));
                         }
                         catch (ArgumentException e)
                         {
@@ -264,20 +264,20 @@ namespace Project2
                         for (int i = 0; i < hotel.roomCapacity / 6; i++)
                         {
                             num++;
-                            hotel.rooms.Add(RoomFactory.GetRoom("SingleBedRoom", num));
+                            hotel.rooms.Add(RoomFactory.GetRoom("SingleBedRoom", num, hotel.star));
                         }
                         num = 200;
                         for (int i = 0; i < hotel.roomCapacity / 6; i++)
                         {
                             num++;
-                            hotel.rooms.Add(RoomFactory.GetRoom("TwoBedRoom", num));
+                            hotel.rooms.Add(RoomFactory.GetRoom("TwoBedRoom", num, hotel.star));
                         }
 
                         num = 300;
                         for (int i = 0; i < hotel.roomCapacity / 6; i++)
                         {
                             num++;
-                            hotel.rooms.Add(RoomFactory.GetRoom("TwinRoom", num));
+                            hotel.rooms.Add(RoomFactory.GetRoom("TwinRoom", num, hotel.star));
                         }
 
 
@@ -285,28 +285,28 @@ namespace Project2
                         for (int i = 0; i < hotel.roomCapacity / 6; i++)
                         {
                             num++;
-                            hotel.rooms.Add(RoomFactory.GetRoom("ThreeBedRoom", num));
+                            hotel.rooms.Add(RoomFactory.GetRoom("ThreeBedRoom", num, hotel.star));
                         }
 
                         num = 500;
                         for (int i = 0; i < hotel.roomCapacity / 6; i++)
                         {
                             num++;
-                            hotel.rooms.Add(RoomFactory.GetRoom("FamilyRoom", num));
+                            hotel.rooms.Add(RoomFactory.GetRoom("FamilyRoom", num, hotel.star));
                         }
 
                         num = 600;
                         for (int i = 0; i < hotel.roomCapacity - ((hotel.roomCapacity / 6) * 5); i++)
                         {
                             num++;
-                            hotel.rooms.Add(RoomFactory.GetRoom("KingRoom", num));
+                            hotel.rooms.Add(RoomFactory.GetRoom("KingRoom", num, hotel.star));
                         }
 
 
                         //wrong room name
                         try
                         {
-                            hotel.rooms.Add(RoomFactory.GetRoom("mustafa", 333));
+                            hotel.rooms.Add(RoomFactory.GetRoom("mustafa", 333, hotel.star));
                         }
                         catch (ArgumentException e)
                         {
