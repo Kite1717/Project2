@@ -8,21 +8,8 @@ namespace Project2
 {
     class FamilyRoom : Room
     {
-        public FamilyRoom(int no,int star) : base(no,star) { }
-        protected override void addPrice(int hotelStar)
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override void addRoomContents()
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override void createCalendar()
-        {
-            throw new NotImplementedException();
-        }
+        public FamilyRoom(int no, List<string> roomContents, Dictionary<User, DateTime> calendar, List<double> prices)
+            : base(no, roomContents, calendar, prices) { }
 
         protected override bool deleteReservation(User user)
         {
