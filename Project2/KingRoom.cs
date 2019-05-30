@@ -8,7 +8,7 @@ namespace Project2
 {
     class KingRoom : Room
     {
-        public KingRoom(int no) : base(no) { }
+        public KingRoom(int no,int star) : base(no,star) { }
         protected override void addPrice(int hotelStar)
         {
             throw new NotImplementedException();

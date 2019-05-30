@@ -15,7 +15,7 @@ namespace Project2
         protected List<double> prices { get; set; }
         
 
-        protected Room(int no)
+        protected Room(int no,int star)
         {
             this.no = no;
             calendar = new Dictionary<User, DateTime>();
