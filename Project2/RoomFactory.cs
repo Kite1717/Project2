@@ -17,7 +17,7 @@ namespace Project2
         /// <param name="roomNo"> number of room</param>
         /// <returns> gives the desired room</returns>
 
-        public static Room GetRoom(string roomType, int roomNo)
+        public static Room GetRoom(string roomType, int roomNo,int star)
         {
 
             switch (roomType)
@@ -25,33 +25,33 @@ namespace Project2
 
                 case "KingRoom":
                     {
-                        return new KingRoom(roomNo);
+                        return new KingRoom(roomNo,star);
 
                     }
 
                 case "FamilyRoom":
                     {
-                        return new FamilyRoom(roomNo);
+                        return new FamilyRoom(roomNo,star);
 
                     }
                 case "SingleBedRoom":
                     {
-                        return new SingleBedRoom(roomNo);
+                        return new SingleBedRoom(roomNo,star);
 
                     }
                 case "ThreeBedRoom":
                     {
-                        return new ThreeBedRoom(roomNo);
+                        return new ThreeBedRoom(roomNo,star);
 
                     }
                 case "TwinRoom":
                     {
-                        return new TwinRoom(roomNo);
+                        return new TwinRoom(roomNo,star);
 
                     }
                 case "TwoBedRoom":
                     {
-                        return new TwoBedRoom(roomNo);
+                        return new TwoBedRoom(roomNo,star);
 
                     }
                 default:
