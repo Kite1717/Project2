@@ -19,39 +19,46 @@ namespace Project2
 
         public static Room GetRoom(string roomType, int roomNo,int star)
         {
+            List<double> prices = new List<double>();
+            Dictionary <User,DateTime> calendar = new Dictionary<User, DateTime>();
+            List<string> roomContents = new List<string>();
+
+            addDefaultContent(ref roomContents, ref calendar, ref prices, star, roomType);
+            
+
 
             switch (roomType)
             {
+                
 
                 case "KingRoom":
                     {
-                        return new KingRoom(roomNo,star);
+                        return new KingRoom(roomNo,roomContents,calendar,prices);
 
                     }
 
                 case "FamilyRoom":
                     {
-                        return new FamilyRoom(roomNo,star);
+                        return new FamilyRoom(roomNo, roomContents, calendar, prices);
 
                     }
                 case "SingleBedRoom":
                     {
-                        return new SingleBedRoom(roomNo,star);
+                        return new SingleBedRoom(roomNo, roomContents, calendar, prices);
 
                     }
                 case "ThreeBedRoom":
                     {
-                        return new ThreeBedRoom(roomNo,star);
-
+                        return new ThreeBedRoom(roomNo, roomContents, calendar, prices);
                     }
                 case "TwinRoom":
                     {
-                        return new TwinRoom(roomNo,star);
+                        return new TwinRoom(roomNo, roomContents, calendar, prices);
 
                     }
                 case "TwoBedRoom":
                     {
-                        return new TwoBedRoom(roomNo,star);
+                        return new TwoBedRoom(roomNo, roomContents, calendar, prices);
 
                     }
                 default:
@@ -67,11 +74,108 @@ namespace Project2
                         throw new ArgumentException();
 
                     }
+            }
+        }
+
+        private static void addDefaultContent(ref List<string> roomContents,ref Dictionary<User,DateTime> calendar , ref List<double> prices,int star , string roomType)
+        {
+            int min=0, max=0;
+            
+            switch (roomType)
+            {
 
 
+                case "KingRoom":
+                    {
+                        min = 600;
+                        max = 700;
+                        roomContents.Add("Free Wifi");
+                        roomContents.Add("mini bar");
+                        roomContents.Add("jacuzzi");
+                        roomContents.Add("TV");
+                        roomContents.Add("Balcony");
+                        roomContents.Add("Tea, coffee, water, espresso-machine");
+                        roomContents.Add("Gold plated toilet");
+                        break;
 
+                    }
+
+                case "FamilyRoom":
+                    {
+                        min = 470;
+                        max = 570;
+                        roomContents.Add("Free Wifi");
+                        roomContents.Add("Crib");
+                        roomContents.Add("TV");
+                        roomContents.Add("Balcony");
+                        roomContents.Add("Climate");
+                      
+                        break;
+                    }
+                case "SingleBedRoom":
+                    {
+
+                        min = 60;
+                        max = 110;
+                        roomContents.Add("Free Wifi");
+                        roomContents.Add("TV");
+                        break;
+
+                    }
+                case "ThreeBedRoom":
+                    {
+                        roomContents.Add("TV");
+                        roomContents.Add("Free Wifi");
+                        roomContents.Add("Tea, coffee, water, espresso-machine");
+                        roomContents.Add("Climate");
+                        min = 350;
+                        max = 450;
+                        break;
+
+                    }
+                case "TwinRoom":
+                    {
+                        roomContents.Add("TV");
+                        roomContents.Add("Free Wifi");
+                        roomContents.Add("Climate");
+                        min = 220;
+                        max = 320;
+                        break;
+
+                    }
+                case "TwoBedRoom":
+                    {
+                        roomContents.Add("TV");
+                        roomContents.Add("Free Wifi");
+                        roomContents.Add("Climate");
+                        min = 140;
+                        max = 210;
+                        break;
+
+                    }
 
             }
+
+            Random random = new Random(DateTime.Now.Millisecond);
+            int pr;
+            // default calendar and price
+            var day = DateTime.Now;
+            for (int i = 0; i < 365; i++)
+            {
+
+                calendar.Add(null, day);
+                day = day.AddDays(1);
+                pr = random.Next((min * star), (max * star) + 1);
+                prices.Add(pr);
+
+            }
+            pr = random.Next(1, 5);
+            if (pr == 1) roomContents.Add("Pool view");
+            else if (pr == 2) roomContents.Add("Forest view");
+            else if (pr == 3) roomContents.Add("Sea view");
+            else roomContents.Add("Lake view");
+
+
 
 
 
