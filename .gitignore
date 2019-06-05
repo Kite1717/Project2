@@ -7,3 +7,8 @@
 
 ### Build ###
 *.vs
+.suo
+.ide-wal
+
+### Compiler ###
+.sln
