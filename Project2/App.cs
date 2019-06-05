@@ -14,7 +14,8 @@ namespace Project2
 
         public App()
         {
-            
+            if (!continueApp()) startDemo();
+
            
         }
 
@@ -30,7 +31,7 @@ namespace Project2
         /// auto adds hotels
         /// default 30 otel and random rooms
         /// </summary>
-        public void startDemo()
+        private void startDemo()
         {
             //added hotel
             Random random = new Random();
@@ -98,7 +99,7 @@ namespace Project2
             } 
 
             
-            loginScreen();
+           
         }
 
         /// <summary>
