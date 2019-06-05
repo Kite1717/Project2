@@ -8,8 +8,8 @@ namespace Project2
 {
     class TwoBedRoom : Room
     {
-         public TwoBedRoom(int no, List<string> roomContents, Dictionary<User, DateTime> calendar, List<double> prices) 
-            : base(no, roomContents, calendar, prices) { }
+         public TwoBedRoom(int no, List<string> roomContents, Dictionary<DateTime, User> calendar, List<double> prices) 
+            : base(no, roomContents, calendar, prices) { 
 
        
         protected override bool deleteReservation(User user)

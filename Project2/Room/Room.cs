@@ -11,10 +11,10 @@ namespace Project2
        
         protected int no { get; }
         protected List<string> roomContents { get;}
-        protected Dictionary<User,DateTime> calendar { get; set; }
+        protected Dictionary<DateTime,User> calendar { get; set; }
         protected List<double> prices { get; set; }
 
-        protected Room(int no, List<string> roomContents, Dictionary<User, DateTime> calendar, List<double> prices)
+        protected Room(int no, List<string> roomContents, Dictionary<DateTime, User> calendar, List<double> prices)
         {
             this.no = no;
             this.roomContents = roomContents;

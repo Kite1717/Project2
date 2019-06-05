@@ -8,7 +8,7 @@ namespace Project2
 {
     class TwinRoom : Room
     {
-        public TwinRoom(int no, List<string> roomContents, Dictionary<User, DateTime> calendar, List<double> prices)
+        public TwinRoom(int no, List<string> roomContents, Dictionary<DateTime, User> calendar, List<double> prices)
             : base(no, roomContents, calendar, prices) { }
 
 

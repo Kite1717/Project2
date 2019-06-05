@@ -8,7 +8,7 @@ namespace Project2
 {
     class FamilyRoom : Room
     {
-        public FamilyRoom(int no, List<string> roomContents, Dictionary<User, DateTime> calendar, List<double> prices)
+        public FamilyRoom(int no, List<string> roomContents, Dictionary<DateTime, User> calendar, List<double> prices)
             : base(no, roomContents, calendar, prices) { }
 
         protected override bool deleteReservation(User user)
