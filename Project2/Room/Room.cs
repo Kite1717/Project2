@@ -24,6 +24,21 @@ namespace Project2
         protected abstract bool makeReservation(User user,DateTime start , int count);
         protected abstract bool deleteReservation(User user);
 
+        public override string ToString()
+        {
+            int k = 0;
+            string superString = "\nNo :" + no + "Status : " + this.GetType().Name +  "\nRoomContents\n";
+            foreach (string i in roomContents) superString += i + "\n";
+            superString += "\n----Calendar-------\n";
+            foreach (DateTime i in calendar.Keys)
+            {
+                superString += i.ToString("dd/MM/yyyy") + "   " + prices[k] + "\n" ;
+                k++;
+            }
+            superString += "\n---------------------------------------\n";
+            return superString;
 
+            
+        } 
     }
 }
