@@ -10,6 +10,7 @@ namespace Project2
     //Ref Link : https://dzone.com/articles/factory-method-design-pattern
     class RoomFactory
     {
+     private static   Random random = new Random(DateTime.Now.Millisecond);
         /// <summary>
         /// the desired room-type object produces
         /// </summary>
@@ -75,6 +76,8 @@ namespace Project2
 
                     }
             }
+
+          
         }
 
         private static void addDefaultContent(ref List<string> roomContents,ref Dictionary<DateTime,User> calendar , ref List<double> prices,int star , string roomType)
@@ -156,7 +159,7 @@ namespace Project2
 
             }
 
-            Random random = new Random(DateTime.Now.Millisecond);
+            
             int pr;
             // default calendar and price
             var day = DateTime.Now;
