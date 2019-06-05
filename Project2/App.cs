@@ -27,8 +27,8 @@ namespace Project2
             return false;
         }
         /// <summary>
-        /// auto adds hotels , admin and start sing up/in screen
-        /// default 30 otel 
+        /// auto adds hotels
+        /// default 30 otel and random rooms
         /// </summary>
         public void startDemo()
         {
@@ -101,6 +101,10 @@ namespace Project2
             loginScreen();
         }
 
+        /// <summary>
+        /// Creating and adding rooms by hotel star
+        /// </summary>
+        /// <param name="hotel">hotel instance</param>
         private void addRoom(Hotel hotel)
         {
             switch(hotel.star)

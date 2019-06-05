@@ -20,7 +20,7 @@ namespace Project2
         public static Room GetRoom(string roomType, int roomNo,int star)
         {
             List<double> prices = new List<double>();
-            Dictionary <User,DateTime> calendar = new Dictionary<User, DateTime>();
+            Dictionary<DateTime, User> calendar = new Dictionary<DateTime, User>();
             List<string> roomContents = new List<string>();
 
             addDefaultContent(ref roomContents, ref calendar, ref prices, star, roomType);
@@ -77,7 +77,7 @@ namespace Project2
             }
         }
 
-        private static void addDefaultContent(ref List<string> roomContents,ref Dictionary<User,DateTime> calendar , ref List<double> prices,int star , string roomType)
+        private static void addDefaultContent(ref List<string> roomContents,ref Dictionary<DateTime,User> calendar , ref List<double> prices,int star , string roomType)
         {
             int min=0, max=0;
             
@@ -160,10 +160,11 @@ namespace Project2
             int pr;
             // default calendar and price
             var day = DateTime.Now;
+           
             for (int i = 0; i < 365; i++)
             {
 
-                calendar.Add(null, day);
+                calendar.Add(day, new User("", "", "", "", -1));
                 day = day.AddDays(1);
                 pr = random.Next((min * star), (max * star) + 1);
                 prices.Add(pr);

@@ -26,12 +26,12 @@ namespace Project2
         /// <param name="age"></param>
         public User(string id, string name, string surname, string password, int age)
         {
-            
-            ID = id;
-            Name = name;
-            Surname = surname;
-            Password = password;
-            Age = age;
+
+            this.id = id;
+            this.name = name;
+            this.surname = surname;
+            this.password = password;
+            this.age = age;
             reservations = new List<Reservation>();
             isMember = false;
         }
