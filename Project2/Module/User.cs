@@ -2,191 +2,171 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-
+using System.Runtime.Serialization;
 namespace Project2
 {
-    class User
+    [Serializable()]
+   public class User : ISerializable
     {
-        private string id;
-        private string password;
-        private string name;
-        private string surname;
-        private int age;
-        List<Reservation> reservations;
-        private bool isMember;
+        private string id = "";
+        private string password = "";
+        private string name = "";
+        private string surname = "";
+        private string age = "";
+
 
         /// <summary>
-        ///it takes all the information necessary for a user and creates the required information.
+        /// it takes all the information necessary for a user and creates the required information
         /// </summary>
-        /// <param name="ıD"></param>
-        /// <param name="name"></param>
-        /// <param name="surname"></param>
-        /// <param name="password"></param>
-        /// <param name="age"></param>
-        public User(string id, string name, string surname, string password, int age)
+        /// <param name="id">usre name</param>
+        /// <param name="password"> password login to the system</param>
+        /// <param name="name">name of user</param>
+        /// <param name="surname">surname of user</param>
+        /// <param name="age"> age of user</param>
+        public User(string id, string password, string name, string surname, string age)
         {
+            ID = id;
+            Password = password;
+            Name = name;
+            Surname = surname;
+            Age = age;
+          
+        }
 
-            this.id = id;
-            this.name = name;
-            this.surname = surname;
-            this.password = password;
-            this.age = age;
-            reservations = new List<Reservation>();
-            isMember = false;
+        /// <summary>
+        /// data insertion for serialization
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="context"></param>
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("ID", ID);
+            info.AddValue("Password", Password);
+            info.AddValue("Name", Name);
+            info.AddValue("Surname", Surname);
+            info.AddValue("Age", Age);
+           
+        }
+        /// <summary>
+        /// constructor receiving data for serialization
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="context"></param>
+        public User(SerializationInfo info, StreamingContext context)
+        {
+            ID = (string)info.GetValue("ID", typeof(string));
+            Password = (string)info.GetValue("Password", typeof(string));
+            Name = (string)info.GetValue("Name", typeof(string));
+            Surname = (string)info.GetValue("Surname", typeof(string));
+            Age = (string)info.GetValue("Age", typeof(string));
+        }
+
+
+
+        public User()
+        {
         }
        
-        // General properties for update process
-        /// <summary>
-        /// Only contains letter and space (Not NULL ,not same)
-        /// </summary>
         public string ID
         {
             get
             {
-                return this.ID;
+                return id;
             }
             set
             {
-                if (value.Length >= 6 && value != null ) this.ID = value;
-                else
+                if (!Regex.IsMatch(value, @"^[a-zA-Z0-9_\-\.]+$") ||  id.Equals(value) || value == null || value.Length < 6)
                 {
-                    if (value != null)
-                        Logger.addLog(value, DateTime.Now.ToString("MM/dd/yyyy") +
-                            "  ArgumentException :  status => Property , class => User , name => ID , value => " + value);
-
-
-                    else
-                        Logger.addLog("name(NULL)", DateTime.Now.ToString("MM/dd/yyyy") +
-                            "  ArgumentNullException :  status => Property , class => User , name => ID , value => name(NULL)");
-
-                    throw new ArgumentException();
-
+                    throw new ProjeException(value == null || value == "" ? "null" : value.ToString());
                 }
-            }
-        }
-        public string Name
-        {
-            get
-            {
-                return this.name;
-            }
-            set
-            {
-                if (!value.Equals(this.name) && value != null && value.All(c => Char.IsLetter(c) || c == ' '))
-                    this.name = value;
-                else
-                {
-                   if(value != null)
-                   Logger.addLog(value, DateTime.Now.ToString("MM/dd/yyyy") +
-                       "  ArgumentException :  status => Property , class => User , name => Name , value => " + value);
-
-
-                   else
-                 Logger.addLog("name(NULL)", DateTime.Now.ToString("MM/dd/yyyy") + 
-                     "  ArgumentNullException :  status => Property , class => User , name => Name , value => name(NULL)");
-
-                    throw new ArgumentException();
-
-                }
-
+                else id = value;
                 
             }
+
         }
 
-        /// <summary>
-        /// Only Contains letter  and it is not null
-        /// </summary>
-        public string Surname
-        {
-            get
-            {
-                return this.surname;
-            }
-            set
-            {
-                if (!value.Equals(this.surname) && value != null && value.All(Char.IsLetter))
-                   this.surname = value;
-
-                else
-                {
-                    if (value != null)
-                        Logger.addLog(value, DateTime.Now.ToString("MM/dd/yyyy") +
-                            "  ArgumentException :  status => Property , class => User , name => Surname , value => " + value);
-
-                    else 
-                        Logger.addLog("surname(NULL)", DateTime.Now.ToString("MM/dd/yyyy") + 
-                            "  ArgumentNullException :  status => Property , class => User , name => Surname , value => surname(NULL)");
-
-                    throw new ArgumentException();
-
-                }
-
-            }
-        }
-
-        /// <summary>
-        ///  it contains all marking and 
-        ///  must have at least 6 digits
-        /// </summary>
         public string Password
         {
             get
             {
-                return this.password;
+                return password;
             }
             set
             {
-                if (!value.Equals(this.password) && value != null && value.Length >= 6)
-                    this.password = value;
-
-                else
+                if (password.Equals(value) || value == null || value.Length < 6)
                 {
-                    if (value != null)
-                        Logger.addLog(value, DateTime.Now.ToString("MM/dd/yyyy") + 
-                            "  ArgumentException :  status => Property , class => User , name => Password , value => " + value);
-
-                    else
-                        Logger.addLog("password(NULL)", DateTime.Now.ToString("MM/dd/yyyy") + 
-                            "  ArgumentNullException :  status => Property , class => User , name => Password , value => password(NULL)");
-
-                    throw new ArgumentException();
-
+                    throw new ProjeException(value == null || value == "" ? "null" : value.ToString());
                 }
+                else password = value;
+
             }
+
         }
 
-        /// <summary>
-        ///can only register older than eighteen 
-        /// </summary>
-        public int Age
+
+        public string Name
         {
             get
             {
-                return this.age;
+                return name;
             }
             set
             {
-                if ( value >= 18)
-                    this.age = value;
-                else { 
-         
-                        Logger.addLog(value.ToString(), DateTime.Now.ToString("MM/dd/yyyy") + 
-                            "  ArgumentException :  status => Property , class => User , name => Age , value => " + value);
-                    throw new ArgumentException();
-
+                if (!Regex.IsMatch(value, @"^[a-zA-Z\s]+$") || name.Equals(value) || value[0] == ' ' || value == null || value.Length < 3)
+                {
+                    throw new ProjeException(value == null || value == "" ? "null" : value.ToString());
                 }
+                else name = value;
+
             }
+
+        }
+
+        public string Surname
+        {
+            get
+            {
+                return surname;
+            }
+            set
+            {
+                if (!Regex.IsMatch(value, @"^[a-zA-Z]+$") || surname.Equals(value) || value == null || value.Length < 3)
+                {
+                    throw new ProjeException(value == null || value == "" ? "null" : value.ToString());
+                }
+                else surname = value;
+
+            }
+
+        }
+
+        public string Age
+        {
+            get
+            {
+                return age;
+            }
+            set
+            {
+                if (!Regex.IsMatch(value, @"^[0-9]+$") || value == null || value.Length != 2 || Convert.ToInt32(value) < 18 || age.Equals(value))
+                {
+                    throw new ProjeException(value == null || value == "" ? "null" : value.ToString());
+                }
+                else age = value;
+
+            }
+
         }
 
 
+        public override string ToString()
+        {
+            return ID + "    " + Name + "    " + Surname + "    " + Age;
+        }
 
-
-
-
-
-
-
+       
     }
 }
 
