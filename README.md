@@ -19,7 +19,10 @@
 ## Referances  📖 👀 
 - [Factory Design Pattern](https://dzone.com/articles/factory-method-design-pattern)
 - [Singleton Design Pattern](https://www.geeksforgeeks.org/singleton-design-pattern/)
-- [Iterator Design Pattern](https://airbrake.io/blog/design-patterns/iterator-design-pattern)
  - [MSDOCS](https://docs.microsoft.com/tr-tr/)
  - [UML Design](https://products.office.com/tr-tr/visio/flowchart-software)
- - [Stack OverFlow](https://stackoverflow.com/)
+ - [Show/Hide the console window of a C# console application](https://stackoverflow.com/questions/3571627/show-hide-the-console-window-of-a-c-sharp-console-application)
+ - [Close a MessageBox after several seconds](https://stackoverflow.com/questions/14522540/close-a-messagebox-after-several-seconds)
+ - [Password char for RichTextBox](https://stackoverflow.com/questions/4451592/password-char-for-richtextbox)
+ - [Xml serialization/deserialization](https://www.youtube.com/watch?v=jbwjbbc5PjI&t=814s)
+ 
