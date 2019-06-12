@@ -5,12 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
+
 
 namespace Project2
 {
     class Program
     {
-
+        //ref link : https://stackoverflow.com/questions/3571627/show-hide-the-console-window-of-a-c-sharp-console-application
         [DllImport("kernel32.dll")]
        static extern IntPtr GetConsoleWindow();
 
@@ -21,12 +25,14 @@ namespace Project2
         const int SW_SHOW = 5;
         static void Main(string[] args)
         {
-           /* var handle = GetConsoleWindow();
+            
+            var handle = GetConsoleWindow();
             ShowWindow(handle, SW_HIDE);
-             */
-            //new App();
+             
+            
             LoginScreen lg = new LoginScreen();
             Application.Run(lg);
+            Environment.Exit(0);
 
 
 

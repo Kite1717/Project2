@@ -45,6 +45,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helper\ProjeException.cs" />
+    <Compile Include="UI\AdminGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AdminGUI.Designer.cs">
+      <DependentUpon>AdminGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\LoginScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,7 +61,7 @@
     <Compile Include="Module\Administration.cs" />
     <Compile Include="Module\AdminModule.cs" />
     <Compile Include="Hotel\AllInHotel.cs" />
-    <Compile Include="App.cs" />
+    <Compile Include="Module\App.cs" />
     <Compile Include="Hotel\BoutiqueHotel.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -66,13 +73,11 @@
     <Compile Include="Hotel\Hostel.cs" />
     <Compile Include="Hotel\Hotel.cs" />
     <Compile Include="Hotel\HotelFactory.cs" />
-    <Compile Include="IAggregate.cs" />
     <Compile Include="Room\KingRoom.cs" />
-    <Compile Include="Logger.cs" />
-    <Compile Include="Module\Module.cs" />
+    <Compile Include="Helper\Logger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reservation.cs" />
+    <Compile Include="Hotel\Reservation.cs" />
     <Compile Include="Room\Room.cs" />
     <Compile Include="Room\RoomFactory.cs" />
     <Compile Include="Room\SingleBedRoom.cs" />
@@ -82,17 +87,29 @@
     <Compile Include="Hotel\UltraLuxuryHotel.cs" />
     <Compile Include="Module\User.cs" />
     <Compile Include="Module\UserModule.cs" />
+    <Compile Include="UI\UserGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\UserGUI.Designer.cs">
+      <DependentUpon>UserGUI.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="Properties\App.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="UI\AdminGUI.resx">
+      <DependentUpon>AdminGUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\LoginScreen.resx">
       <DependentUpon>LoginScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\UserGUI.resx">
+      <DependentUpon>UserGUI.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
