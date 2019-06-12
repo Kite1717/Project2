@@ -32,4 +32,8 @@
  * Step2 : Remove `` appDat2.xml``
  * Step3 : Change the name of the file [default.xml](https://github.com/DokuzEylulCsc/proje2-lost/blob/master/Project2/bin/Debug/Data/default.xml) to `appDat2.xml``
  * Step4 : Run application
+ # Informations for the login process
+
+* [Admin](https://github.com/DokuzEylulCsc/proje2-lost/blob/master/Info/AdminInfo.txt)
  
+* [Users](https://github.com/DokuzEylulCsc/proje2-lost/blob/master/Info/Users.txt)
