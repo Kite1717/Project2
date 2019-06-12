@@ -3,22 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Xml.Serialization;
+/// <summary>
+/// quality 5
+/// </summary>
 namespace Project2
 {
-    class FamilyRoom : Room
+    [Serializable()]
+  
+    public class FamilyRoom : Room
     {
-        public FamilyRoom(int no, List<string> roomContents, Dictionary<DateTime, User> calendar, List<double> prices)
-            : base(no, roomContents, calendar, prices) { }
-
-        protected override bool deleteReservation(User user)
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override bool makeReservation(User user, DateTime start, int count)
-        {
-            throw new NotImplementedException();
-        }
+        public FamilyRoom(int no, List<string> roomContents , int minPrice,int maxPrice)
+            : base(no, roomContents , minPrice,maxPrice) { }
+        public FamilyRoom()
+            : base() { }
     }
 }

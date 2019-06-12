@@ -8,7 +8,7 @@ namespace Project2
 {
     #region Abstract_Factory 
     //Ref Link : https://dzone.com/articles/factory-method-design-pattern
-    class RoomFactory
+    public class RoomFactory
     {
      private static   Random random = new Random(DateTime.Now.Millisecond);
         /// <summary>
@@ -20,11 +20,11 @@ namespace Project2
 
         public static Room GetRoom(string roomType, int roomNo,int star)
         {
-            List<double> prices = new List<double>();
-            Dictionary<DateTime, User> calendar = new Dictionary<DateTime, User>();
+
+            int minPrice = 0, maxPrice = 0;
             List<string> roomContents = new List<string>();
 
-            addDefaultContent(ref roomContents, ref calendar, ref prices, star, roomType);
+            addDefaultContent(ref roomContents,  ref minPrice , ref maxPrice, star, roomType);
             
 
 
@@ -34,55 +34,54 @@ namespace Project2
 
                 case "KingRoom":
                     {
-                        return new KingRoom(roomNo,roomContents,calendar,prices);
+                        return new KingRoom(roomNo,roomContents,minPrice,maxPrice);
 
                     }
 
                 case "FamilyRoom":
                     {
-                        return new FamilyRoom(roomNo, roomContents, calendar, prices);
+                        return new FamilyRoom(roomNo, roomContents, minPrice, maxPrice);
 
                     }
                 case "SingleBedRoom":
                     {
-                        return new SingleBedRoom(roomNo, roomContents, calendar, prices);
+                        return new SingleBedRoom(roomNo, roomContents, minPrice, maxPrice);
 
                     }
                 case "ThreeBedRoom":
                     {
-                        return new ThreeBedRoom(roomNo, roomContents, calendar, prices);
+                        return new ThreeBedRoom(roomNo, roomContents, minPrice, maxPrice);
                     }
                 case "TwinRoom":
                     {
-                        return new TwinRoom(roomNo, roomContents, calendar, prices);
+                        return new TwinRoom(roomNo, roomContents, minPrice, maxPrice);
 
                     }
                 case "TwoBedRoom":
                     {
-                        return new TwoBedRoom(roomNo, roomContents, calendar, prices);
+                        return new TwoBedRoom(roomNo, roomContents, minPrice, maxPrice);
 
                     }
                 default:
                     {
-                        if (roomType != null)
-                            Logger.addLog(roomType, DateTime.Now.ToString("MM/dd/yyyy") +
-                                "  ArgumentException :  status => Method , class => RoomFactory , name => GetRoom , value => " + roomType);
-
-                        else
-                            Logger.addLog("roomType(NULL)", DateTime.Now.ToString("MM/dd/yyyy") +
-                            "  ArgumentNullException :  status => Method , class => RoomFactory , name => GetRoom , value => NULL");
-
-                        throw new ArgumentException();
+                        throw new ProjeException(roomType == null || roomType == "" ? "null" : roomType);
 
                     }
             }
 
           
         }
-
-        private static void addDefaultContent(ref List<string> roomContents,ref Dictionary<DateTime,User> calendar , ref List<double> prices,int star , string roomType)
+        /// <summary>
+        /// inserts the required values ​​into the room
+        /// </summary>
+        /// <param name="roomContents"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <param name="star"></param>
+        /// <param name="roomType"></param>
+        private static void addDefaultContent(ref List<string> roomContents, ref int min , ref int max,int star , string roomType)
         {
-            int min=0, max=0;
+           
             
             switch (roomType)
             {
@@ -90,8 +89,8 @@ namespace Project2
 
                 case "KingRoom":
                     {
-                        min = 600;
-                        max = 700;
+                        min = 600 * star;
+                        max = 700 * star;
                         roomContents.Add("Free Wifi");
                         roomContents.Add("mini bar");
                         roomContents.Add("jacuzzi");
@@ -105,8 +104,8 @@ namespace Project2
 
                 case "FamilyRoom":
                     {
-                        min = 470;
-                        max = 570;
+                        min = 470 * star;
+                        max = 570 * star;
                         roomContents.Add("Free Wifi");
                         roomContents.Add("Crib");
                         roomContents.Add("TV");
@@ -118,8 +117,8 @@ namespace Project2
                 case "SingleBedRoom":
                     {
 
-                        min = 60;
-                        max = 110;
+                        min = 60 * star;
+                        max = 110 * star;
                         roomContents.Add("Free Wifi");
                         roomContents.Add("TV");
                         break;
@@ -131,8 +130,8 @@ namespace Project2
                         roomContents.Add("Free Wifi");
                         roomContents.Add("Tea, coffee, water, espresso-machine");
                         roomContents.Add("Climate");
-                        min = 350;
-                        max = 450;
+                        min = 350 * star;
+                        max = 450 * star;
                         break;
 
                     }
@@ -141,8 +140,8 @@ namespace Project2
                         roomContents.Add("TV");
                         roomContents.Add("Free Wifi");
                         roomContents.Add("Climate");
-                        min = 220;
-                        max = 320;
+                        min = 220 * star;
+                        max = 320 * star;
                         break;
 
                     }
@@ -151,36 +150,19 @@ namespace Project2
                         roomContents.Add("TV");
                         roomContents.Add("Free Wifi");
                         roomContents.Add("Climate");
-                        min = 140;
-                        max = 210;
+                        min = 140 * star;
+                        max = 210 * star;
                         break;
 
                     }
 
             }
 
-            
-            int pr;
-            // default calendar and price
-            var day = DateTime.Now;
-           
-            for (int i = 0; i < 365; i++)
-            {
-
-                calendar.Add(day, new User("", "", "", "", -1));
-                day = day.AddDays(1);
-                pr = random.Next((min * star), (max * star) + 1);
-                prices.Add(pr);
-
-            }
-            pr = random.Next(1, 5);
+           int pr = random.Next(1, 5);
             if (pr == 1) roomContents.Add("Pool view");
             else if (pr == 2) roomContents.Add("Forest view");
             else if (pr == 3) roomContents.Add("Sea view");
             else roomContents.Add("Lake view");
-
-
-
 
 
         }

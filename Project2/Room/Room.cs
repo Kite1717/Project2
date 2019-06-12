@@ -3,42 +3,80 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 namespace Project2
 {
-   abstract class Room 
+    [Serializable()]
+    [XmlInclude(typeof(SingleBedRoom))]
+    [XmlInclude(typeof(TwoBedRoom))]
+    [XmlInclude(typeof(TwinRoom))]
+    [XmlInclude(typeof(ThreeBedRoom))]
+    [XmlInclude(typeof(FamilyRoom))]
+    [XmlInclude(typeof(KingRoom))]
+    public class Room :ISerializable
     {
        
-        protected int no { get; }
-        protected List<string> roomContents { get;}
-        protected Dictionary<DateTime,User> calendar { get; set; }
-        protected List<double> prices { get; set; }
+        public int no { get; set; }
+        public List<string> roomContents { get; set; }
+        public int  minprices { get; set; }
+        public int maxprices { get; set; }
 
-        protected Room(int no, List<string> roomContents, Dictionary<DateTime, User> calendar, List<double> prices)
+
+
+        /// <summary>
+        /// data insertion for serialization
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="context"></param>
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("no", no);
+            info.AddValue("roomContents", roomContents);
+            info.AddValue("minprices", minprices);
+            info.AddValue("maxprices", maxprices);
+        }
+        /// <summary>
+        /// constructor receiving data for serialization
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="context"></param>
+        public Room(SerializationInfo info, StreamingContext context)
+        {
+            no = (int)info.GetValue("no", typeof(int));
+            roomContents = (List<string>)info.GetValue("roomContents", typeof(string));
+            minprices = (int)info.GetValue("minprices", typeof(int));
+            maxprices = (int)info.GetValue("maxprices", typeof(int));
+        }
+
+        public Room(int no, List<string> roomContents, int minprices, int maxprices)
         {
             this.no = no;
             this.roomContents = roomContents;
-            this.calendar = calendar;
-            this.prices = prices;
+            this.minprices = minprices;
+            this.maxprices = maxprices;
         }
-        protected abstract bool makeReservation(User user,DateTime start , int count);
-        protected abstract bool deleteReservation(User user);
 
-        public override string ToString()
+        public Room()
         {
-            int k = 0;
-            string superString = "\nNo :" + no + "Status : " + this.GetType().Name +  "\nRoomContents\n";
-            foreach (string i in roomContents) superString += i + "\n";
-            superString += "\n----Calendar-------\n";
-            foreach (DateTime i in calendar.Keys)
-            {
-                superString += i.ToString("dd/MM/yyyy") + "   " + prices[k] + "\n" ;
-                k++;
-            }
-            superString += "\n---------------------------------------\n";
-            return superString;
+        }
 
-            
-        } 
+        public  bool getPay(DateTime s , DateTime e , ref int price,DateTime firstBootTime)
+        {
+               Random random = new Random(DateTime.Now.Millisecond);
+             TimeSpan span = e - s;
+            if (span.TotalDays <= 0) return false;
+
+          
+            for (int i =0; i < (int)(span.TotalDays); i++)
+            {
+                price += random.Next(minprices, maxprices + 1);
+            }
+            return true;
+
+        }
+
+       
     }
 }
