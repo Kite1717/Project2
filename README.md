@@ -12,8 +12,8 @@
 - [Description](https://github.com/DokuzEylulCsc/proje2-lost/blob/master/DESCRIPTION.md) 📋 
 - [Source Code](https://github.com/DokuzEylulCsc/proje2-lost/tree/master/Project2) 🐛 
 - [UML Diagram](https://github.com/DokuzEylulCsc/proje2-lost/blob/master/UML%20Class%20Diagram/UML%20Class%20Diagram.pdf)
-- [Log File]()
-- [Xml Files]()
+- [Log File](https://github.com/DokuzEylulCsc/proje2-lost/tree/master/Project2/bin/Debug/LogsFile)
+- [Xml Files](https://github.com/DokuzEylulCsc/proje2-lost/tree/master/Project2/bin/Debug/Data)
 
 
 ## Referances  📖 👀 
@@ -28,8 +28,8 @@
  
  # Notification
  ## Steps to run the first installation
- * Step1 : Click on this link [appDat2.xml]()
+ * Step1 : Click on this link [appDat2.xml](https://github.com/DokuzEylulCsc/proje2-lost/blob/master/Project2/bin/Debug/Data/appData2.xml)
  * Step2 : Remove `` appDat2.xml``
- * Step3 : Change the name of the file `` default.xml`` to `appDat2.xml``
+ * Step3 : Change the name of the file [default.xml](https://github.com/DokuzEylulCsc/proje2-lost/blob/master/Project2/bin/Debug/Data/default.xml) to `appDat2.xml``
  * Step4 : Run application
  
