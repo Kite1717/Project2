@@ -7,12 +7,12 @@
 
 [Batuhan KANSU](https://github.com/bkansu) **2017280026** 💻 ⚠️ 📆 
 
-## Project Overview  [![Status](https://img.shields.io/badge/Status-ongoing-red.svg)](https://github.com/DokuzEylulCsc/proje2-lost/commits/master)
+## Project Overview  [![Status](https://img.shields.io/badge/Status-completed-blue.svg)](https://github.com/DokuzEylulCsc/proje2-lost/commits/master)
 - **Using** [.NET Framework 4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49981) 🔧
 - [Description](https://github.com/DokuzEylulCsc/proje2-lost/blob/master/DESCRIPTION.md) 📋 
 - [Source Code](https://github.com/DokuzEylulCsc/proje2-lost/tree/master/Project2) 🐛 
 - [UML Diagram](https://github.com/DokuzEylulCsc/proje2-lost/blob/master/UML%20Class%20Diagram/UML%20Class%20Diagram.pdf)
-- [Log File](https://github.com/DokuzEylulCsc/proje2-lost/blob/master/Project2/bin/Debug/Log.txt)
+- [Log File]()
 - [Xml Files]()
 
 
@@ -25,4 +25,11 @@
  - [Close a MessageBox after several seconds](https://stackoverflow.com/questions/14522540/close-a-messagebox-after-several-seconds)
  - [Password char for RichTextBox](https://stackoverflow.com/questions/4451592/password-char-for-richtextbox)
  - [Xml serialization/deserialization](https://www.youtube.com/watch?v=jbwjbbc5PjI&t=814s)
+ 
+ # Notification
+ ## Steps to run the first installation
+ * Step1 : Click on this link [appDat2.xml]()
+ * Step2 : Remove `` appDat2.xml``
+ * Step3 : Change the name of the file `` default.xml`` to `appDat2.xml``
+ * Step4 : Run application
  
