@@ -8,7 +8,7 @@ namespace Project2
 {
     #region Abstract_Factory 
     //Ref Link : https://dzone.com/articles/factory-method-design-pattern
-    class HotelFactory
+    public class HotelFactory
     {
 
         /// <summary>
@@ -18,7 +18,7 @@ namespace Project2
         /// <param name="city"> number of room</param>
         /// <returns>gives the desired hotel</returns>
 
-        public static Hotel GetHotel(string hotelType, string city)
+        public static Hotel GetHotel(string hotelType, string city,string name)
         {
 
             switch (hotelType)
@@ -26,52 +26,88 @@ namespace Project2
 
                 case "Hostel":
                     {
-                        return new Hostel(city);
+                        return new Hostel(city,name);
 
                     }
 
                 case "BoutiqueHotel":
                     {
-                        return new BoutiqueHotel(city);
+                        return new BoutiqueHotel(city, name);
 
                     }
                 case "AllInHotel":
                     {
-                        return new AllInHotel(city);
+                        return new AllInHotel(city, name);
 
                     }
                 case "HolidayVillage":
                     {
-                        return new HolidayVillage(city);
+                        return new HolidayVillage(city, name);
 
                     }
                 case "UltraLuxuryHotel":
                     {
-                        return new UltraLuxuryHotel(city);
+                        return new UltraLuxuryHotel(city, name);
 
                     }
             
                 default:
                     {
-                        if (hotelType != null)
-                            Logger.addLog(hotelType, DateTime.Now.ToString("MM/dd/yyyy") +
-                                "  ArgumentException :  status => Method , class => HotelFactory , name => GetHotel , value => " + hotelType);
-
-                        else
-                            Logger.addLog("hotelType(NULL)", DateTime.Now.ToString("MM/dd/yyyy") +
-                            "  ArgumentNullException :  status => Method , class => HotelFactory , name => GetHotel , value => NULL");
-
-                        throw new ArgumentException();
+                        throw new ProjeException(hotelType == ""  || hotelType == null? "null" : hotelType);
 
                     }
 
-
-
-
             }
 
+        }
 
+        /// <summary>
+        /// the desired star object produces
+        /// </summary>
+        /// <param name="star"></param>
+        /// <param name="city"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public static Hotel GetHotel(int star, string city , string name)
+        {
 
+            switch (star)
+            {
+
+                case 1:
+                    {
+                        return new Hostel(city, name);
+
+                    }
+
+                case 2:
+                    {
+                        return new BoutiqueHotel(city, name);
+
+                    }
+                case 3:
+                    {
+                        return new AllInHotel(city, name);
+
+                    }
+                case 4:
+                    {
+                        return new HolidayVillage(city, name);
+
+                    }
+                case 5:
+                    {
+                        return new UltraLuxuryHotel(city, name);
+
+                    }
+
+                default:
+                    {
+                        throw new ProjeException("Invalid numeric value");
+
+                    }
+
+            }
         }
     }
 }

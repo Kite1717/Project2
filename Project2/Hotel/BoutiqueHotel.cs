@@ -3,22 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Project2
 {
-    /// <summary>
-    /// 2 stars hotel
-    /// </summary>
-    class BoutiqueHotel : Hotel
+    [Serializable()]    /// <summary>
+                        /// 2 stars hotel
+                        /// </summary>
+    public class BoutiqueHotel : Hotel
     {
        
-        public BoutiqueHotel(string city) : base(city,2)
+        public BoutiqueHotel(string city,string name) : base(city,2,name)
         {
           
 
         }
-        
+        public BoutiqueHotel() : base()
+        {
 
-       
+
+        }
+
+
+
     }
 }
