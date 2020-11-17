@@ -1,15 +1,9 @@
 # Project2
 
-## Team "Lost"
 
-### Contributors 
-[Mustafa Fırat YILMAZ](https://github.com/Kite1717)  **2016280037** 💻 🌍 🎨 
 
-[Batuhan KANSU](https://github.com/bkansu) **2017280026** 💻 ⚠️ 📆 
-
-## Project Overview  [![Status](https://img.shields.io/badge/Status-completed-blue.svg)](https://github.com/DokuzEylulCsc/proje2-lost/commits/master)
+## Project Overview  
 - **Using** [.NET Framework 4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49981) 🔧
-- [Description](https://github.com/DokuzEylulCsc/proje2-lost/blob/master/DESCRIPTION.md) 📋 
 - [Source Code](https://github.com/DokuzEylulCsc/proje2-lost/tree/master/Project2) 🐛 
 - [UML Diagram](https://github.com/DokuzEylulCsc/proje2-lost/blob/master/UML%20Class%20Diagram/UML%20Class%20Diagram.pdf)
 - [Log File](https://github.com/DokuzEylulCsc/proje2-lost/tree/master/Project2/bin/Debug/LogsFile)
